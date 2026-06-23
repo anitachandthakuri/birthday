@@ -37,17 +37,18 @@ body {
     }
 }
 
-.container{
-    width:100%;
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:20px;
+.container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Centers vertically */
+    align-items: center !important;     /* Centers horizontally */
+    text-align: center !important;
+    
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 40px 20px;
 }
-
 #content{
     width:100%;
     max-width:900px;
