@@ -122,17 +122,14 @@ html:`
 <h1>Happy Birthday Yash ❤️🎂</h1>
 
 <p>
-I hope this year brings you happiness, success, good health and countless beautiful memories 🥹✨
 
-Thank you for all the laughter, support and moments we've shared together. Life feels a little brighter with you in it ❤️
 
-As you start this new chapter, I hope all your hard work pays off and you achieve everything you've been dreaming of. 🌟
+And just like that… we’ve reached the end. 😌✨
 
-Keep smiling, keep believing in yourself and never forget how special you are ❤️
+Thank you for watching this little surprise till the very end.
 
-Enjoy your day to the fullest 🎂✨
+I hope it made you smile, laugh, or at least roll your eyes and say “pagal hai ye ladki.” 🤭❤️
 
-I love you ❤️
 
 — Anita ❤️
 </p>
