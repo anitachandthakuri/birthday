@@ -1,17 +1,38 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     min-height: 100vh;
-    margin: 0; /* Ensures no weird white gaps at the edges */
-    overflow-x: hidden; /* Prevents horizontal scrolling issues on phone screens */
-
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
     font-family: Georgia, serif;
     color: white;
+    background-color: #0b0c10; /* Clean dark fallback */
+}
 
+/* FIX: This pseudo-element creates a separate background layer.
+   This bypasses the mobile 'background-attachment: fixed' bug entirely!
+*/
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Keeps it behind your custom stars and text */
+    
     background: 
     linear-gradient(
         rgba(0,0,0,0.45),
@@ -22,147 +43,120 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Fixes the background in place so mobile scrolling doesn't break it */
-
+    
     animation: galaxyMove 40s ease-in-out infinite alternate;
 }
 
-@keyframes galaxyMove{
-    from{
-        background-size:105%;
-    }
-
-    to{
-        background-size:115%;
-    }
+@keyframes galaxyMove {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); } /* Uses hardware scaling—perfectly smooth on mobile! */
 }
 
 .container {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important; /* Centers vertically */
-    align-items: center !important;     /* Centers horizontally */
+    justify-content: center !important; /* Forces dead-center vertical alignment */
+    align-items: center !important;     /* Forces dead-center horizontal alignment */
     text-align: center !important;
     
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
-    padding: 40px 20px;
+    padding: 30px 20px;
 }
-#content{
-    width:100%;
-    max-width:900px;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+#content {
+    width: 100%;
+    max-width: 900px;
 
-    text-align:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    animation:fadeIn 2s ease;
+    text-align: center;
+    animation: fadeIn 2s ease;
+    transition: opacity 2s ease;
 }
 
 img,
-video{
-    width:60%;
-    max-width:350px;
-    max-height:500px;
-
-    object-fit:cover;
-
-    border-radius:20px;
-
-    border:3px solid gold;
+video {
+    width: 85%; /* Slightly wider on mobile screens to look cinematic */
+    max-width: 350px;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid gold;
 
     box-shadow:
     0 0 15px gold,
     0 0 35px rgba(255,215,0,.6);
 
-    margin-bottom:25px;
+    margin-bottom: 25px;
 }
 
-h1{
-    color:gold;
-
-    font-size:3rem;
-
-    margin-bottom:20px;
-
+h1 {
+    color: gold;
+    font-size: 2.5rem; /* Resized slightly to cleanly fit smaller phone screens */
+    margin-bottom: 20px;
     text-shadow:
     0 0 10px gold,
     0 0 20px gold;
 }
 
-p{
-    max-width:700px;
-
-    font-size:1.4rem;
-
-    line-height:1.8;
-
-    text-align:center;
-
-    color:white;
-
-    text-shadow:
-    0 0 10px gold;
-
-    padding:0 15px;
+p {
+    max-width: 700px;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px gold;
+    padding: 0 15px;
 }
 
-.star{
-    position:fixed;
-
-    background:white;
-
-    border-radius:50%;
-
-    animation:twinkle 3s infinite;
-
-    z-index:-1;
+.star {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+    z-index: -1;
 }
 
-@keyframes twinkle{
-    0%,100%{
-        opacity:0.3;
-        transform:scale(1);
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
     }
-
-    50%{
-        opacity:1;
-        transform:scale(1.8);
+    50% {
+        opacity: 1;
+        transform: scale(1.8);
     }
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-.typing{
-    overflow:hidden;
-    white-space:pre-line;
-    animation:fadeText 2s ease;
-}
-
-@keyframes fadeText{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-#content{
-    transition:opacity 2s ease;
+.typing {
+    overflow: hidden;
+    white-space: pre-line;
+    animation: fadeText 2s ease;
+}
+
+@keyframes fadeText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
