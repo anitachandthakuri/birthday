@@ -233,3 +233,12 @@ window.addEventListener("load", () => {
     }
 
 });
+// Plays the music automatically as soon as the user taps anywhere on the screen
+document.addEventListener('click', function() {
+    var audio = document.getElementById("audio1");
+    if (audio) {
+        audio.play().catch(function(error) {
+            console.log("Audio play blocked: ", error);
+        });
+    }
+}, { once: true }); // '{ once: true }' ensures this only triggers on the first click
