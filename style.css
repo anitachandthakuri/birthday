@@ -4,25 +4,27 @@
     box-sizing:border-box;
 }
 
-body{
-    min-height:100vh;
-    overflow:auto;
+body {
+    min-height: 100vh;
+    margin: 0; /* Ensures no weird white gaps at the edges */
+    overflow-x: hidden; /* Prevents horizontal scrolling issues on phone screens */
 
-    font-family:Georgia, serif;
-    color:white;
+    font-family: Georgia, serif;
+    color: white;
 
-    background:
+    background: 
     linear-gradient(
         rgba(0,0,0,0.45),
         rgba(0,0,0,0.45)
     ),
     url("galaxy.jpeg");
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fixes the background in place so mobile scrolling doesn't break it */
 
-    animation:galaxyMove 40s ease-in-out infinite alternate;
+    animation: galaxyMove 40s ease-in-out infinite alternate;
 }
 
 @keyframes galaxyMove{
